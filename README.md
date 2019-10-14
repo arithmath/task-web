@@ -32,3 +32,16 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## メモ
+プロジェクト作成
+```
+$ vue create task-web
+$ cd task-web
+$ getstorybook
+```
+
+Storybook起動
+```
+$ npm run storybook
+```
