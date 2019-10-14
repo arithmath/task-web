@@ -1,3 +1,13 @@
+<!--
+TaskCard
+
+[プロパティ]
+type: 'new'か'task'
+addAction: タスク追加の時に実行される処理
+updateAction: タスク更新の時に実行される処理
+deleteAction: タスク削除の時に実行される処理
+
+-->
 <template>
   <div class="task-card">
     <TaskInput @enter="enterInput"></TaskInput>
@@ -34,6 +44,10 @@ export default {
       type: Function,
       default: () => {window.alert("add")}
     },
+    updateAction: {
+      type: Function,
+      default: () => {window.alert("update")}
+    },
     deleteAction: {
       type: Function,
       default: () => {window.alert("delete")}
@@ -54,7 +68,11 @@ export default {
       this.deleteAction()
     },
     enterInput (ev) {
-      this.addAction()
+      if (this.isTask) {
+        this.updateAction()
+      } else {
+        this.addAction()
+      }
     }
   }
 }

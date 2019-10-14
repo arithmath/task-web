@@ -1,3 +1,12 @@
+<!--
+TaskInput
+
+[プロパティ]
+無し
+
+[発行イベント]
+enter: Enterキーが押された時
+-->
 <template>
   <input type="text" class="task-input" @keydown.enter="enter">
 </template>

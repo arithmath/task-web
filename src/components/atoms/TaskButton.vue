@@ -1,3 +1,12 @@
+<!--
+TaskButton
+
+[プロパティ]
+type: 'add'または'delete'
+
+[発行イベント]
+click: ボタンが押された時
+-->
 <template>
   <button
     type="button"
