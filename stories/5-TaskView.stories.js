@@ -1,13 +1,13 @@
 //import { storiesOf } from '@storybook/vue'
-import TaskList from '../src/components/organisms/TaskList.vue'
+import TaskView from '../src/views/TaskView.vue'
 // import TaskButton from '../src/components/atoms/TaskButton.vue'
 // import TaskInput from '../src/components/atoms/TaskInput.vue'
 
 export default {
-  title: 'TaskList',
+  title: 'TaskView',
 };
 
-export const taskList = () => ({
+export const taskView = () => ({
   // ストア取得部分だけモックかするため、taskメソッドをオーバーライドする
   // components: { Mock: {
   //     extends: TaskList,
@@ -22,7 +22,7 @@ export const taskList = () => ({
   //     }
   //   }
   // },
-  components: { TaskList },
+  components: { TaskView },
   data: () => {
     return {
       mockTasks: [
@@ -32,7 +32,7 @@ export const taskList = () => ({
     }
   },
   template: `
-  <TaskList
+  <TaskView
     :tasks="mockTasks">
-  </TaskList>`
+  </TaskView>`
 });

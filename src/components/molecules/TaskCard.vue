@@ -9,15 +9,19 @@ deleteAction: タスク削除の時に実行される処理
 
 -->
 <template>
-  <div class="task-card">
-    <TaskInput @enter="enterInput"></TaskInput>
+  <span class="task-card">
+    <TaskInput
+      @enter="enterInput"
+      v-model="task.task"
+    >
+    </TaskInput>
     <TaskButton
       class="task-button"
       :type="taskButtonType"
       @click="clickButton"
       v-if="isTask">
     </TaskButton>
-  </div>
+  </span>
 </template>
 
 <script lang="ts">
@@ -38,25 +42,40 @@ export default {
   props: {
     type: {
       type: String,
-      default: "new" // "new"か"task"
+      default: 'new' // "new"か"task"
+    },
+    task: {
+      type: Object,
+      default: () => {
+        return {
+          id: null,
+          task: ''
+        }
+      }
     },
     addAction: {
       type: Function,
-      default: () => {window.alert("add")}
+      default: (task) => {
+        window.alert(JSON.stringify(task))
+      }
     },
     updateAction: {
       type: Function,
-      default: () => {window.alert("update")}
+      default: (task) => {
+        window.alert(JSON.stringify(task))
+      }
     },
     deleteAction: {
       type: Function,
-      default: () => {window.alert("delete")}
+      default: (task) => {
+        window.alert(JSON.stringify(task))
+      }
     }
   },
 
   computed: {
     taskButtonType () {
-      return this.type === 'new' ? "add" : "delete"
+      return this.type === 'new' ? 'add' : 'delete'
     },
     isTask() {
       return this.type === 'task'
@@ -65,13 +84,13 @@ export default {
 
   methods: {
     clickButton (ev) {
-      this.deleteAction()
+      this.deleteAction(this.task)
     },
     enterInput (ev) {
       if (this.isTask) {
-        this.updateAction()
+        this.updateAction(this.task)
       } else {
-        this.addAction()
+        this.addAction(this.task)
       }
     }
   }

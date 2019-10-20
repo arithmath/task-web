@@ -37,7 +37,7 @@ export default {
       return this.type === 'add' ? '+' : '-'
     },
     classes () {
-      return this.type === 'add' ? ["task-button", "add"] : ["task-button", "delete"]
+      return this.type === 'add' ? ['task-button', 'add'] : ['task-button', 'delete']
     }
   },
 

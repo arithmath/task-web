@@ -1,9 +1,21 @@
 <template>
-<div>
-  <div v-for="task in tasks" class="task-list">
-    <TaskCard type="task" value="task.task"></TaskCard>
-  </div>
-</div>
+<span>
+  <span v-for="task in tasks" v-bind:key="task.id" class="task-list">
+    <TaskCard
+      type="task"
+      :task="task"
+      :addAction="addAction"
+      :updateAction="updateAction"
+      :deleteAction="deleteAction">
+    </TaskCard>
+  </span>
+  <TaskCard
+    type="new"
+    :addAction="addAction"
+    :updateAction="updateAction"
+    :deleteAction="deleteAction">
+  </TaskCard>
+</span>
 </template>
 
 <script lang="ts">
@@ -16,25 +28,30 @@ export default {
     TaskCard
   },
 
-  computed: {
-    tasks () {
-      console.log(this)
-      //console.log(this.$store.getters.tasks)
-      return this.$store.getters.tasks
+  props: {
+    tasks: {
+      type: Object,
+      default: {}
+    },
+    addAction: {
+      type: Function,
+      default: (task) => {
+        window.alert('[TaskList] ' + JSON.stringify(task))
+      }
+    },
+    updateAction: {
+      type: Function,
+      default: (task) => {
+        window.alert('[TaskList]' + JSON.stringify(task))
+      }
+    },
+    deleteAction: {
+      type: Function,
+      default: (task) => {
+        window.alert('[TaskList]' + JSON.stringify(task))
+      }
     }
   },
-
-  methods: {
-    addTask() {
-
-    },
-    updateTask() {
-
-    },
-    deleteTask() {
-
-    },
-  }
 }
 </script>
 

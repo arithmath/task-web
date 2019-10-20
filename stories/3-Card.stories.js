@@ -9,12 +9,28 @@ export default {
 
 export const newCard = () => ({
   components: { TaskCard },
-  template: '<TaskCard type="new"></TaskCard>'
+  data: () => {
+    return {
+      task: {
+        id: 1,
+        task: "hoge"
+      }
+    }
+  },
+  template: '<TaskCard type="new" :task="task"></TaskCard>'
 });
 
 export const taskCard = () => ({
   components: { TaskCard },
-  template: '<TaskCard type="task"></TaskCard>'
+  data: () => {
+    return {
+      task: {
+        id: 1,
+        task: "fuga"
+      }
+    }
+  },
+  template: '<TaskCard type="task" :task="task"></TaskCard>'
 });
 
 // storiesOf('MyCard', module)
