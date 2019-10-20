@@ -1,21 +1,21 @@
 <template>
-<span>
-  <span v-for="task in tasks" v-bind:key="task.id" class="task-list">
-    <TaskCard
-      type="task"
-      :task="task"
-      :addAction="addAction"
-      :updateAction="updateAction"
-      :deleteAction="deleteAction">
-    </TaskCard>
-  </span>
+<div class="task-list">
+  <TaskCard
+    v-for="task in tasks"
+    v-bind:key="task.id"
+    type="task"
+    :task="task"
+    :addAction="addAction"
+    :updateAction="updateAction"
+    :deleteAction="deleteAction">
+  </TaskCard>
   <TaskCard
     type="new"
     :addAction="addAction"
     :updateAction="updateAction"
     :deleteAction="deleteAction">
   </TaskCard>
-</span>
+</div>
 </template>
 
 <script lang="ts">
@@ -56,4 +56,10 @@ export default {
 </script>
 
 <style scoped>
+.task-list {
+  margin: 0px auto;
+  padding: 10px;
+  display: inline-block;
+  background-color: rgba(208, 255, 128, 0.5);
+}
 </style>

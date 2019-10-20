@@ -5,8 +5,7 @@
   </div>
   <hr>
   <div>
-    <taskList
-      class="task-list"
+    <TaskList
       :tasks="tasks"
       :addAction="addAction"
       :updateAction="updateAction"
@@ -62,7 +61,4 @@ export default {
 </script>
 
 <style scoped>
-.task-list {
-  margin: 0 auto;
-}
 </style>

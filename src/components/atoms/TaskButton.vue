@@ -51,13 +51,14 @@ export default {
 
 <style scoped>
 .task-button {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
+  text-align: center;
   color: white;
-  border-radius: 15px;
+  border-radius: 10px;
   border-width: 0;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }
 .add {
   background-color: rgb(255, 192, 192)

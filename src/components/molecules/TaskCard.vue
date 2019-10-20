@@ -100,6 +100,7 @@ export default {
 <style scoped>
 .task-card {
   padding: 0.5em 1em;
+  margin: 5% 0;
   border-radius: 3px;
   border-width: 0;
   width: 300px;
